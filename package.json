@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ntrautomation/cypress-crud/issues"
   },
-  "homepage": "https://github.com/ntrautomation/cypress-crud#readme"
+  "homepage": "https://github.com/ntrautomation/cypress-crud#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }
