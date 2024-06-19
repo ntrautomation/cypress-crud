@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ntrautomation/cypress-crud#readme",
   "devDependencies": {
+    "cypress": "^13.12.0",
     "typescript": "^5.4.5"
   }
 }
