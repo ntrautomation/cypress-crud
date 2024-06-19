@@ -32,6 +32,23 @@ crud api testing example with cypress and typescript
     - click on Continue
     - choose your browser, and click on `Start E2E Testing in <browser_name>`
 - to Kill the cypress session use command/control + C on your keyboard depending on your OS.
+- add `tsconfig.json` inside your `/cypress` folder
+    - from the root folder in your terminal type:
+        - `cd cypress`
+        - `touch tsconfig.json`
+    - this will create the file. Paste the following:
+
+        ```
+        {
+        "compilerOptions": {
+            "target": "es5",
+            "lib": ["es5", "dom"],
+            "types": ["cypress", "node"]
+        },
+        "include": ["**/*.ts"]
+        }
+        ```
+- to get back to the root folder type: `cd ..`
 
 > [!TIP]
 >To avoid clicking the CY configuration after your run `npm cypress open` under your `package.json` add the following command:
