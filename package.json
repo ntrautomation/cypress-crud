@@ -4,7 +4,7 @@
   "description": "Cypress crud example with typescript",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "runner": "cypress open --e2e --browser chrome"
   },
   "repository": {
     "type": "git",

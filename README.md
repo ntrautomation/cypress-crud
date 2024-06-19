@@ -1,15 +1,19 @@
-[![](https://img.shields.io/badge/Typescript-blue?style=for-the-badge)](https://www.typescriptlang.org/) [![](https://img.shields.io/badge/cypress-green?style=for-the-badge)](https://www.cypress.io/)
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=typescript,cypress" />
+  </a>
+</p>
 
-
-
-# cypress-crud
+[![](https://img.shields.io/badge/cypress_crud_api-grey?style=for-the-badge)](https://www.cypress.io/)
 crud api testing example with cypress and typescript
 
-### Project setup
+[![](https://img.shields.io/badge/PROJECT_SETUP-grey?style=for-the-badge)](https://www.cypress.io/)
 - clone the repo
 - open the project and in terminal run `npm i`
+- `npm run runner` in terminal to run Cypress test app
 
-### How to setup a Cypress project with TS
+
+[![](https://img.shields.io/badge/how_to_setup_a_new_cypress_project-grey?style=for-the-badge)](https://www.cypress.io/)
 
 > [!NOTE]  
 >This project does not need the following steps. This is just a quick how-to-guide when you are starting a new project from scratch.
