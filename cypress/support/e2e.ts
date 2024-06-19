@@ -15,6 +15,23 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import "cypress-real-events/support"
+import 'cypress-mochawesome-reporter/register';
+import "cypress-localstorage-commands";
+require('@cypress/xpath')
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+beforeEach(() => {
+    //cy.log(`:::::::::: GLOBAL BEFORE EACH HOOK :::::::::: `);
+    //ADDING THIS TO BYPASS UNCAUGHT EXCEPTIONS ON SOME WEBSITES
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
+});
+
+after(() => {
+    // cy.log(`:::::::::: GLOBAL AFTER HOOK :::::::::: `);
+    // cy.clearCookies();
+    // cy.getCookies().then((cookies) => {
+    //     expect(cookies).to.have.length(0);
+    // })
+})

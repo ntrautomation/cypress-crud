@@ -19,12 +19,18 @@
   ],
   "author": "Nenad Trajanovski",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ntrautomation/cypress-crud/issues"
-  },
-  "homepage": "https://github.com/ntrautomation/cypress-crud#readme",
   "devDependencies": {
-    "cypress": "^13.12.0",
+    "@faker-js/faker": "^8.4.1",
+    "@testing-library/cypress": "^10.0.2",
+    "cypress": "^13.11.0",
+    "cypress-localstorage-commands": "^2.2.6",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-real-events": "^1.12.0",
+    "dotenv": "^16.4.5",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "@types/cypress-dotenv": "^2.0.3"
   }
 }
