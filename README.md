@@ -1,3 +1,7 @@
+[![](https://img.shields.io/badge/Typescript-blue?style=for-the-badge)](https://www.typescriptlang.org/) [![](https://img.shields.io/badge/cypress-green?style=for-the-badge)](https://www.cypress.io/)
+
+
+
 # cypress-crud
 crud api testing example with cypress and typescript
 
@@ -5,9 +9,10 @@ crud api testing example with cypress and typescript
 - clone the repo
 - open the project and in terminal run `npm i`
 
-
 ### How to setup a Cypress project with TS
-___NOTE!__ This project does not need the following steps. This is just a quick how-to-guide when you are starting a new project from scratch._
+
+> [!NOTE]  
+>This project does not need the following steps. This is just a quick how-to-guide when you are starting a new project from scratch.
 - Open your terminal where your project is located
 - run `npm init` - follow and and answer the questionary.
     - most of the answers will remain default
@@ -28,8 +33,11 @@ ___NOTE!__ This project does not need the following steps. This is just a quick 
     - choose your browser, and click on `Start E2E Testing in <browser_name>`
 - to Kill the cypress session use command/control + C on your keyboard depending on your OS.
 
-___TIP!___
-- To avoid clicking the CY configuration after your run `npm cypress open` under your package.json -> "scripts" add the following command:
-    - <code>"scripts" : {
-        "runner" : "cypress open --e2e --browser chrome"
-    }</code>
+> [!TIP]
+>To avoid clicking the CY configuration after your run `npm cypress open` under your `package.json` add the following command:
+   
+```
+    "scripts" : {
+       "runner" : "cypress open --e2e --browser chrome"
+    }
+```
