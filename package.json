@@ -1,0 +1,26 @@
+{
+  "name": "cypress-crud",
+  "version": "1.0.0",
+  "description": "Cypress crud example with typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntrautomation/cypress-crud.git"
+  },
+  "keywords": [
+    "cypress",
+    "typescript",
+    "crud",
+    "test",
+    "api"
+  ],
+  "author": "Nenad Trajanovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntrautomation/cypress-crud/issues"
+  },
+  "homepage": "https://github.com/ntrautomation/cypress-crud#readme"
+}
