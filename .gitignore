@@ -36,4 +36,4 @@ cypress/screenshots
 js/*.js
 
 # Exluded data files/folders
-cypress/pages/data/demoAPI/
+cypress/pages/user_data/
