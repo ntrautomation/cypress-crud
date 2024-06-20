@@ -1,9 +1,18 @@
+import { CRUD } from "../pages/objects/CrudOperation";
+import * as userData from "../pages/data/getUserData.json";
+import { Reader } from "../pages/objects/Readers";
+
 describe('CRUD Examples', () => {
+  
     it('CRUD user flow', () => {
         //CREATE USER -> save userID
+        CRUD.createUser();
+        let userID = Reader.readFromJSON(userData.userID);
+          
         //GEN TOKEN -> save token
+        
         //READ USER -> user userID and token
-        //DELETE USER
+        //DELETE USER 
     });
 
     it('CRUD flow with adding and removing books', () => {
