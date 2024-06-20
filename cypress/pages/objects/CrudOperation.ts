@@ -1,7 +1,7 @@
 import { API_REQUEST } from "../enums/RequestTypes";
 import { TEST_USER } from "../interfaces/IRandomUser";
 
-const path: string = `cypress/pages/data/`
+const path: string = `cypress/pages/user_data/`
 
 class CrudOperation implements IUserLogin{
     createUser(){
