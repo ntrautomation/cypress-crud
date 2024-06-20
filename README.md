@@ -11,6 +11,7 @@ crud api testing example with cypress and typescript
 - clone the repo
 - open the project and in terminal run `npm i`
 - `npm run runner` in terminal to run Cypress test app
+- `cypress.env.json` is excluded from commits -> in the root folder `touch cypress.env.json` to create one
 
 
 [![](https://img.shields.io/badge/how_to_setup_a_new_cypress_project-grey?style=for-the-badge)](https://www.cypress.io/)
