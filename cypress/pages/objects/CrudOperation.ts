@@ -1,53 +1,40 @@
 import { API_REQUEST } from "../enums/RequestTypes";
-import { TEST_USER } from "./Constants";
-
-
-const path: string = `cypress/pages/user_data/`
+import { Const, TEST_USER } from "./Constants";
 
 class CrudOperation implements IUserLogin{
-    clearFiles(){
-      cy.writeFile(`${path}getUserData.json`, '');
-      cy.writeFile(`${path}getUserToken.json`, '');
-      cy.writeFile(`${path}getLoggedUserInfo.json`, '');
-    }
+  
     createUser(){
-        cy.request(API_REQUEST.POST, `https://demoqa.com/Account/v1/User/`, TEST_USER)
-        .then((res) => {
-          cy.log(`userName`, TEST_USER.userName)
-          cy.writeFile(`${path}getUserData.json`, '');
-          cy.writeFile(`${path}getUserData.json`, res.body);
-        });
+        return cy.request(API_REQUEST.POST, Cypress.env('USER_ENDPOINT'), TEST_USER)
+          .then((res) => {
+            return res.body;
+          });
     };
     
-    getAuthorizationToken(userName){
+    getAuthorizationToken(){
       const LOGIN_USER: IRandomUser = {
-        userName : userName,
-        password : Cypress.env('password')
+        userName : TEST_USER.userName,
+        password : TEST_USER.password
       }
-      cy.request(API_REQUEST.POST, `https://demoqa.com/Account/v1/GenerateToken`, LOGIN_USER)
-      .then((res) => {
-        cy.log(LOGIN_USER.userName)
-        cy.writeFile(`${path}getUserToken.json`, '');
-        cy.writeFile(`${path}getUserToken.json`, res.body);
-      })
+      return cy.request(API_REQUEST.POST, Cypress.env('TOKEN_ENDPOINT'), LOGIN_USER)
+        .then((res) => {
+          return res.body
+        })
     };
 
     getUserInformation(token, userID){
       const Authorization: string = `Bearer ${token}`;
-      const options = {
-        method: API_REQUEST.GET,
-        url: `https://demoqa.com/Account/v1/User/${userID}`,
-        headers: {
-          Authorization,
-        }
-      }
-      cy.request(options).then((res) => {
-        cy.writeFile(`${path}getLoggedUserInfo.json`, '');
-        cy.writeFile(`${path}getLoggedUserInfo.json`, res.body);
-      })
+      return cy.request(Const.getOptions(userID, Authorization))
+        .then((res) => {
+          return res.body
+        })
     };
-    deleteUser(){
 
+    deleteUser(token, userID){
+      const Authorization: string = `Bearer ${token}`;
+      return cy.request(Const.deleteOptions(userID, Authorization))
+        .then((res) => {
+          return res
+        })
     };
 }
 

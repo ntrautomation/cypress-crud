@@ -1,6 +1,6 @@
 interface IUserLogin {
     createUser();
-    // getAuthorizationToken(): Cypress.Chainable<Cypress.Response<any>>;
-    // getUserInformation(): Cypress.Chainable<Cypress.Response<any>>;
-    // deleteUser(): Cypress.Chainable<Cypress.Response<any>>;
+    getAuthorizationToken(username: string);
+    getUserInformation(token: string, userID: string);
+    deleteUser(token: string, userID: string);
 }
