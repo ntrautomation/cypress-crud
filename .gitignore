@@ -36,4 +36,3 @@ cypress/screenshots
 js/*.js
 
 # Exluded data files/folders
-cypress/pages/user_data/
