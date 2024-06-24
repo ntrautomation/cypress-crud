@@ -1,8 +1,9 @@
 import { CRUD } from "../pages/objects/CrudOperation";
 import { books } from "../pages/data/books.json"
 import { Iterator } from "../pages/helper/Iterators";
-import { add } from "cypress/types/lodash";
+
 let bookList: string[] = [];
+
 describe('CRUD Examples', () => {
 
     before(() => {
@@ -20,19 +21,25 @@ describe('CRUD Examples', () => {
               //LOGIN USER
               CRUD.getUserInformation(tokenData.token, userData.userID)
                 .then((userInfo) => {
-                  expect(userInfo.username).to.be.equal(userData.username)
-                  expect(userInfo.userId).to.be.equal(userData.userID)
+                  expect(userInfo.username).to.be.equal(userData.username);
+                  expect(userInfo.userId).to.be.equal(userData.userID);
 
                   //DELETE USER
                   CRUD.deleteUser(tokenData.token, userData.userID)
                 }).then((deleteData) => {
-                  expect(deleteData.status).to.be.equal(204)
-                })
-            })
+                  expect(deleteData.status).to.be.equal(204);
+
+                  //VALIDATE USER IS DELETED
+                  CRUD.getUserInformation(tokenData.token, userData.userID)
+                    .then((res) => {
+                      expect(res.message).to.be.equal("User not found!");
+                    });
+                });
+            });
           });
     });
 
-    it.only('CRUD flow with adding and removing books', () => {
+    it('CRUD flow with adding and removing books', () => {
       //CREATE USER -> save userID
       CRUD.createUser().then((userData) => {
 
@@ -46,6 +53,7 @@ describe('CRUD Examples', () => {
                 let addedBook = bookData.body.books[0].isbn;
                 expect(addedBook).to.be.equal(bookList[0]);
 
+                //UPDATE USER'S BOOK
                 CRUD.updateUserBook(bookList[0], bookList[2], userData.userID, tokenData.token)
                   .then((updatedBookData) => {
                     let updatedBook = updatedBookData.body.books[0].isbn;
@@ -53,22 +61,26 @@ describe('CRUD Examples', () => {
                     expect(updatedBook).to.not.be.equal(addedBook);
                     expect(updatedBook).to.be.equal(bookList[2]);
 
+                    //DELETE USER'S BOOK
                     CRUD.deleteUserBook(bookList[2], tokenData.token, userData.userID)
                       .then((deleteBookData) => {
-                        expect(deleteBookData.status).to.be.equal(204)
-                      })
-                  })
-              })
-          })
-          
+                        expect(deleteBookData.status).to.be.equal(204);
 
-            
+                        //DELETE USER
+                        CRUD.deleteUser(tokenData.token, userData.userID)
+                          .then((deleteData) => {
+                            expect(deleteData.status).to.be.equal(204);
 
+                            //VALIDATE USER IS DELETED
+                            CRUD.getUserInformation(tokenData.token, userData.userID)
+                              .then((res) => {
+                                expect(res.message).to.be.equal("User not found!");
+                              });
+                          });
+                      });
+                  });
+              });
+          });
       });
-
-      
-      //UPDATE BOOK -> update book ID
-      //DELETE BOOK
-      //DELETE USER
     });
   });

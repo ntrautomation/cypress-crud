@@ -25,6 +25,7 @@ class Constants {
     getOptions(userID: string, Authorization){
         const options: IRequestOptions = {
             method: API_REQUEST.GET,
+            failOnStatusCode: false,
             url: Cypress.env('USER_ENDPOINT') + userID,
             headers: {
               Authorization,
