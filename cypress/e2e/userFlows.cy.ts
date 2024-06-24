@@ -1,9 +1,13 @@
 import { CRUD } from "../pages/objects/CrudOperation";
-import { TEST_USER } from "../pages/objects/Constants";
-
-const path: string = `cypress/pages/user_data/`
+import { books } from "../pages/data/books.json"
+import { Iterator } from "../pages/helper/Iterators";
 
 describe('CRUD Examples', () => {
+
+    beforeEach(() => {
+      let bookList: string[] = [];
+      Iterator.iterateOverJson(bookList, books);
+    })
   
     it('CRUD user flow', () => {
       //CREATE USER -> save userID
@@ -29,8 +33,6 @@ describe('CRUD Examples', () => {
     });
 
     it('CRUD flow with adding and removing books', () => {
-      //READ USER -> user userID and token
-      
       //CREATE USER -> save userID
       //GEN TOKEN -> save token
       //READ USER -> user userID and token
