@@ -59,6 +59,21 @@ class Constants {
         }
         return options;
     }
+
+    updateBookOptions(isbn: string, isbnNew: string, userID: string, Authorization){
+        const options: IRequestOptions = {
+            method: API_REQUEST.PUT,
+            url: `${Cypress.env('BOOKS_ENDPOINT')}/${isbn}`,
+            body: {
+                userId: userID,
+                isbn: isbnNew
+            },
+            headers: {
+                Authorization
+            }
+        }
+        return options;
+    }
 }
 
 export const Const = new Constants();
