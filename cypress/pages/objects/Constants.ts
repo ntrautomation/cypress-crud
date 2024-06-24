@@ -1,3 +1,4 @@
+import { method } from "cypress/types/lodash";
 import { API_REQUEST } from "../enums/RequestTypes";
 
 const { faker } = require(`@faker-js/faker`);
@@ -67,6 +68,21 @@ class Constants {
             body: {
                 userId: userID,
                 isbn: isbnNew
+            },
+            headers: {
+                Authorization
+            }
+        }
+        return options;
+    }
+
+    deleteBookOptions(isbn: string, token: string, userID: string, Authorization){
+        const options = {
+            method: API_REQUEST.DELETE,
+            url: Cypress.env('BOOK_ENDPOINT'),
+            body: {
+                isbn: isbn,
+                userId: userID
             },
             headers: {
                 Authorization
