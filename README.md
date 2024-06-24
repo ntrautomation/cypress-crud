@@ -1,11 +1,14 @@
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=typescript,cypress" />
+    <img src="https://skillicons.dev/icons?i=cypress,typescript" />
   </a>
 </p>
 
 [![](https://img.shields.io/badge/cypress_crud_api-grey?style=for-the-badge)](https://www.cypress.io/)
-crud api testing example with cypress and typescript
+
+CRUD API testing example with Cypress and Typescript
+
+![cypress](https://img.shields.io/badge/Cypress-13.10.0-brightgreen) ![ts](https://img.shields.io/badge/TS-5.4.5-blue) ![faker](https://img.shields.io/badge/Faker-8.4.1-lightgrey) ![mochawesome](https://img.shields.io/badge/Mochawesome-3.8.2-red)
 
 [![](https://img.shields.io/badge/PROJECT_SETUP-grey?style=for-the-badge)](https://www.cypress.io/)
 - clone the repo
