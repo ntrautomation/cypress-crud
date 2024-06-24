@@ -7,7 +7,8 @@ interface IRequestOptions {
         body?: {
           userName?,
           password?,
-          userId?
+          userId?,
+          isbn?,
           collectionOfIsbns?
         }
 }

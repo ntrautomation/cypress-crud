@@ -1,6 +1,7 @@
 import { CRUD } from "../pages/objects/CrudOperation";
 import { books } from "../pages/data/books.json"
 import { Iterator } from "../pages/helper/Iterators";
+import { add } from "cypress/types/lodash";
 let bookList: string[] = [];
 describe('CRUD Examples', () => {
 
@@ -43,7 +44,15 @@ describe('CRUD Examples', () => {
             CRUD.addBooksToUser(bookList[0], tokenData.token, userData.userID)
               .then((bookData) => {
                 let addedBook = bookData.body.books[0].isbn;
-                expect(addedBook).to.be.equal(bookList[0])
+                expect(addedBook).to.be.equal(bookList[0]);
+
+                CRUD.updateUserBook(bookList[0], bookList[2], userData.userID, tokenData.token)
+                  .then((updatedBookData) => {
+                    let updatedBook = updatedBookData.body.books[0].isbn;
+                    expect(updatedBookData.body.userId).to.be.equal(userData.userID);
+                    expect(updatedBook).to.not.be.equal(addedBook);
+                    expect(updatedBook).to.be.equal(bookList[2]);
+                  })
               })
           })
           
