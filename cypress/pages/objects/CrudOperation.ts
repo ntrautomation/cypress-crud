@@ -1,7 +1,7 @@
 import { API_REQUEST } from "../enums/RequestTypes";
 import { Const, TEST_USER } from "./Constants";
 
-class CrudOperation implements IUserLogin{
+class CrudOperation implements IUserLogin, IBooks{
   
     createUser(){
         return cy.request(API_REQUEST.POST, Cypress.env('USER_ENDPOINT'), TEST_USER)
@@ -36,6 +36,15 @@ class CrudOperation implements IUserLogin{
           return res
         })
     };
-}
 
+    addBooksToUser(isbn, token, userID){
+      const Authorization: string = `Bearer ${token}`;
+      return cy.request(Const.addBookOptions(userID, Authorization, isbn))
+        .then((res) => {
+          return res
+        })
+    }
+      
+}
+  
 export const CRUD = new CrudOperation();

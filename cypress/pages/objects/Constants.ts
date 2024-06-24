@@ -14,8 +14,9 @@ export const TEST_USER: IRandomUser = {
         {
             length: 15, 
             memorable: false, 
-            pattern: /^[a-zA-Z0-9!@#$&()\\-`.+,/\"]*$/
-            })
+            pattern: /^[a-zA-Z0-9!@#$&()\\-`.+,/\"]*$/,
+            prefix: "9$"
+        })
 }
 
 
@@ -37,6 +38,23 @@ class Constants {
             url: Cypress.env('USER_ENDPOINT') + userID,
             headers: {
               Authorization,
+            }
+        }
+        return options;
+    }
+
+    addBookOptions(userID: string, Authorization, isbn: string){
+        const options: IRequestOptions = {
+            method: API_REQUEST.POST,
+            url: Cypress.env('BOOKS_ENDPOINT'),
+            body: {
+                userId : userID,
+                collectionOfIsbns: [{
+                    isbn : isbn
+                }]
+            },
+            headers: {
+                Authorization
             }
         }
         return options;
