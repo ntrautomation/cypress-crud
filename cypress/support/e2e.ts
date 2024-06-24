@@ -15,10 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import "cypress-real-events/support"
 import 'cypress-mochawesome-reporter/register';
 import "cypress-localstorage-commands";
-require('@cypress/xpath')
 
 beforeEach(() => {
     //cy.log(`:::::::::: GLOBAL BEFORE EACH HOOK :::::::::: `);

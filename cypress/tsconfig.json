@@ -4,8 +4,7 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "types": ["cypress", 
-      "node", "@cypress/xpath", 
-      "cypress-real-events", 
+      "node",
       "@testing-library/cypress"]
   },
   "include": ["**/*.ts"]

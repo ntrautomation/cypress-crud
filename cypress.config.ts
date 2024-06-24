@@ -1,5 +1,4 @@
 import { defineConfig } from "cypress";
-require('dotenv').config();
 
 //FAKER
 const { faker } = require(`@faker-js/faker`);

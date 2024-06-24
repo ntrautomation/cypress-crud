@@ -37,9 +37,3 @@ declare global {
     }
   }
 }
-
-Cypress.Commands.add('login', (username: string, password: string)=>{
-    cy.get(`#loginFrm_loginname`).type(username);
-    cy.get(`#loginFrm_password`).type(password);
-    cy.xpath(`//button[@title = 'Login']`).click();
-});
