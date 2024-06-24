@@ -1,6 +1,7 @@
 interface IRequestOptions {
     method: string,
         url: string,
+        failOnStatusCode? : boolean,
         headers?: {
           Authorization : string,
         },
