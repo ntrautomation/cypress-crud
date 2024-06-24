@@ -1,9 +1,7 @@
 interface IBooks {
-    addBooksToUser(isbn: string, token: string);
+    addBooksToUser(isbn: string, token: string, userID: string);
 
-    //getAuthorizationToken(username: string); --> use this IUserLogin
+    // updateUserBook(isbn: string, token: string);
 
-    updateUserBook(isbn: string, token: string);
-
-    deleteUserBook()
+    // deleteUserBook()
 }

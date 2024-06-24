@@ -5,7 +5,9 @@ interface IRequestOptions {
           Authorization : string,
         },
         body?: {
-          userName,
-          password
+          userName?,
+          password?,
+          userId?
+          collectionOfIsbns?
         }
 }
