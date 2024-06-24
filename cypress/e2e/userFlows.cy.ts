@@ -52,6 +52,11 @@ describe('CRUD Examples', () => {
                     expect(updatedBookData.body.userId).to.be.equal(userData.userID);
                     expect(updatedBook).to.not.be.equal(addedBook);
                     expect(updatedBook).to.be.equal(bookList[2]);
+
+                    CRUD.deleteUserBook(bookList[2], tokenData.token, userData.userID)
+                      .then((deleteBookData) => {
+                        expect(deleteBookData.status).to.be.equal(204)
+                      })
                   })
               })
           })

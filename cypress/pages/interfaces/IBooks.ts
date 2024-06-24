@@ -3,5 +3,5 @@ interface IBooks {
 
     updateUserBook(isbn: string, isbnNew: string, userID: string, token: string);
 
-    // deleteUserBook()
+    deleteUserBook(isbn: string, token: string, userID: string)
 }
