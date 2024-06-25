@@ -1,4 +1,4 @@
-import { CRUD } from "../pages/objects/CrudOperation";
+import { CRUD } from "../pages/backend/CrudOperation";
 import { books } from "../pages/data/books.json"
 import { Iterator } from "../pages/helper/Iterators";
 

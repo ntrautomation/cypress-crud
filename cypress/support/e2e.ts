@@ -27,9 +27,9 @@ beforeEach(() => {
 });
 
 after(() => {
-    // cy.log(`:::::::::: GLOBAL AFTER HOOK :::::::::: `);
-    // cy.clearCookies();
-    // cy.getCookies().then((cookies) => {
-    //     expect(cookies).to.have.length(0);
-    // })
+    cy.log(`:::::::::: GLOBAL AFTER HOOK :::::::::: `);
+    cy.clearCookies();
+    cy.getCookies().then((cookies) => {
+        expect(cookies).to.have.length(0);
+    })
 })
