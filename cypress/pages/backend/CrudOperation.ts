@@ -1,5 +1,5 @@
 import { API_REQUEST } from "../enums/RequestTypes";
-import { Const, TEST_USER } from "./Constants";
+import { Const, TEST_USER } from "../objects/Constants";
 
 let Authorization: string = `NO TOKEN GENERATED!`;
 class CrudOperation implements IUserLogin, IBooks{
@@ -59,6 +59,16 @@ class CrudOperation implements IUserLogin, IBooks{
       return cy.request(Const.deleteBookOptions(isbn, token, userID, Authorization))
         .then((res) => {
           return res;
+        })
+    }
+
+    loginUser(){
+      return cy.request(Const.loginUserOptions())
+        .then((res) => {
+          cy.setCookie('token', res.body.token);
+          cy.setCookie('expires', res.body.expires);
+          cy.setCookie('userID', res.body.userId);
+          cy.setCookie('userName', res.body.username);
         })
     }
 }

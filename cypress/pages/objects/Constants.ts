@@ -91,6 +91,21 @@ class Constants {
         }
         return options;
     }
+
+    loginUserOptions(){
+        const options = {
+            method: API_REQUEST.POST,  
+            url : Cypress.env('LOGIN_ENDPOINT'), 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: {
+                userName: Cypress.env('USER_NAME'), 
+                password: Cypress.env('PASSWORD')
+            }
+        }
+        return options;
+    }
 }
 
 export const Const = new Constants();
