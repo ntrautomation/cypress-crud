@@ -32,4 +32,16 @@ after(() => {
     cy.getCookies().then((cookies) => {
         expect(cookies).to.have.length(0);
     })
-})
+});
+
+/**
+ * Disable Fetch and XHR Logs
+ */
+
+const app = window.top;
+if (!app.document.head.querySelector("[data-hide-command-log-request]")){
+    const style = app.document.createElement("style");
+    style.innerHTML = ".command-name-request, .command-name-xhr {display: none}";
+    style.setAttribute("data-hide-command-log-request", "");
+    app.document.head.appendChild(style);
+}
